@@ -1,0 +1,11 @@
+﻿=== Divide-and-Conquer Demo ===
+MergeSort: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]  time=1.9622 ms depth=1
+QuickSort: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]  time=2.5778 ms depth=0
+DeterministicSelect median (k=5): 5
+Closest pair: (1.0, 1.0) ù (1.5, 1.2)  dist=0.5385
+
+Small benchmark (n=10_000 random):
+  MergeSort  6.994 ms  depth=11  comparisons=142999
+  QuickSort  7.413 ms  depth=6  comparisons=185358
+  Select     6.666 ms  depth=6  comparisons=28980
+  ClosestPair 54.522 ms  depth=12  dist=2.969145
