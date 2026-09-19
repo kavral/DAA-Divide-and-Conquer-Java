@@ -27,6 +27,11 @@ class MergeSortTest {
     }
 
     @Test
+    void rejectsNull() {
+        org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () -> MergeSort.sort(null));
+    }
+
+    @Test
     void sortsSmallArray() {
         int[] a = {5, 1, 4, 2, 8, 0, 3};
         MergeSort.sort(a);

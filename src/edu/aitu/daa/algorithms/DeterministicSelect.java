@@ -19,7 +19,10 @@ public final class DeterministicSelect {
      * Returns the element that would be at index {@code k} in sorted order (0-based).
      */
     public static int select(int[] a, int k, Metrics metrics) {
-        if (a == null || a.length == 0) {
+        if (a == null) {
+            throw new IllegalArgumentException("array must not be null");
+        }
+        if (a.length == 0) {
             throw new IllegalArgumentException("array must be non-empty");
         }
         if (k < 0 || k >= a.length) {

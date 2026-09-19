@@ -22,7 +22,10 @@ public final class MergeSort {
     }
 
     public static void sort(int[] a, int cutoff, Metrics metrics) {
-        if (a == null || a.length <= 1) {
+        if (a == null) {
+            throw new IllegalArgumentException("array must not be null");
+        }
+        if (a.length <= 1) {
             return;
         }
         int[] buffer = new int[a.length];

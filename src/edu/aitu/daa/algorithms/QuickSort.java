@@ -26,7 +26,13 @@ public final class QuickSort {
     }
 
     public static void sort(int[] a, int cutoff, Random rng, Metrics metrics) {
-        if (a == null || a.length <= 1) {
+        if (a == null) {
+            throw new IllegalArgumentException("array must not be null");
+        }
+        if (rng == null) {
+            throw new IllegalArgumentException("rng must not be null");
+        }
+        if (a.length <= 1) {
             return;
         }
         sortRange(a, 0, a.length - 1, cutoff, rng, metrics);

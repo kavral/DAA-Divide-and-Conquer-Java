@@ -61,4 +61,15 @@ class ClosestPairTest {
         assertThrows(IllegalArgumentException.class,
                 () -> ClosestPair.closest(new ClosestPair.Point[]{new ClosestPair.Point(0, 0)}));
     }
+
+    @Test
+    void identicalPointsHaveZeroDistance() {
+        ClosestPair.Point[] pts = {
+                new ClosestPair.Point(2, 2),
+                new ClosestPair.Point(2, 2),
+                new ClosestPair.Point(9, 9)
+        };
+        ClosestPair.Result r = ClosestPair.closest(pts);
+        assertEquals(0.0, r.distance, 1e-12);
+    }
 }
