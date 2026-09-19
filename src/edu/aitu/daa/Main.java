@@ -1,4 +1,4 @@
-﻿package edu.aitu.daa;
+package edu.aitu.daa;
 
 import edu.aitu.daa.bench.BenchmarkRunner;
 
