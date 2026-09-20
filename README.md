@@ -98,7 +98,7 @@ Since \(1/5 + 7/10 < 1\), Akra–Bazzi / induction gives **T(n) = Θ(n)**.
 T(n) = 2T(n/2) + Θ(n)
 \]
 
-Same Master case as MergeSort ⇒ **Θ(n log n)**, versus naïve O(n²) pairwise search.
+Same Master case as MergeSort ⇒ **Θ(n log n)**, versus native O(n²) pairwise search.
 
 ---
 
@@ -161,7 +161,7 @@ Depths grow like **O(log n)** (MergeSort ≈ log₂(n/cutoff); QuickSort stays l
 
 **Why Closest Pair beats O(n²).** After two half-size recursive solves, only a thin vertical strip is examined, and geometry limits each point to a constant number of y-neighbor checks, so the conquer step is O(n), giving the MergeSort-like Master recurrence.
 
-**Practical factors.** JIT compilation, GC pauses, memory bandwidth, branch prediction, and cache locality dominate constant factors. Allocation of IdentityHashMap / buffers in Closest Pair and MoM group work add overhead invisible in pure Θ-notation. Running multiple trials with warm-up reduces but does not eliminate noise.
+**Practical factors.** JIT compilation, GC pauses, memory bandwidth, branch prediction, and cache locality dominate constant factors. Allocation of IdentityHashMap / buffers in Closest Pair and MoM group work add overhead invisible in pure O-notation. Running multiple trials with warm-up reduces but does not eliminate noise.
 
 ---
 
