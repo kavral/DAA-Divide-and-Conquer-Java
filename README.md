@@ -52,11 +52,9 @@ On PowerShell, quote the `-D` flag: `mvn -q exec:java "-Dexec.args=bench"`.
 
 **Recurrence.** With cutoff ignored for asymptotics:
 
-\[
-T(n) = 2T(n/2) + Θ(n)
-\]
+$$T(n)=2T(n/2)+\Theta(n),\qquad T(1)=\Theta(1).$$
 
-Master Theorem case 2 (`a=2`, `b=2`, `f(n)=Θ(n)=Θ(n^{log_b a})`) ⇒ **Θ(n log n)**. Akra–Bazzi with equal halves yields the same integral growth.
+Master Theorem case 2 (`a=2`, `b=2`, `f(n)=Θ(n)`) ⇒ **Θ(n log n)**. Akra–Bazzi with equal halves yields the same integral growth.
 
 ### 2. QuickSort
 
@@ -64,13 +62,12 @@ Master Theorem case 2 (`a=2`, `b=2`, `f(n)=Θ(n)=Θ(n^{log_b a})`) ⇒ **Θ(n lo
 
 **Complexity.** Expected Θ(n log n); worst case O(n²) (unlikely with random pivots). Extra space O(log n) stack with smaller-first. Typical depth O(log n).
 
-**Recurrence (expected).** Roughly
+**Recurrence.** After partitioning around a pivot of rank `k` (0-based left size):
 
-\[
-T(n) = \frac{1}{n}\sum_{q=1}^{n} \bigl(T(q-1)+T(n-q)\bigr) + Θ(n)
-\]
+$$T(n)=T(k)+T(n-k-1)+\Theta(n),\qquad T(0)=T(1)=\Theta(1).$$
 
-which solves to **Θ(n log n)** expected. Smaller-first does not change asymptotics but caps stack depth at O(log n) even on unbalanced partitions.
+With a random pivot the expected cost is **Θ(n log n)**; the worst case `k=0` or `k=n-1` gives **O(n²)**. Smaller-first does not change asymptotics but caps stack depth at O(log n) even on unbalanced partitions.
+
 
 ### 3. Deterministic Select (Median-of-Medians)
 
@@ -80,11 +77,9 @@ which solves to **Θ(n log n)** expected. Smaller-first does not change asymptot
 
 **Recurrence intuition (Akra–Bazzi / standard MoM).** At least ~30% of elements are eliminated each step, and MoM on `⌈n/5⌉` medians costs `T(⌈n/5⌉)`:
 
-\[
-T(n) \le T(n/5) + T(7n/10) + O(n)
-\]
+$$T(n)\le T(n/5)+T(7n/10)+O(n).$$
 
-Since \(1/5 + 7/10 < 1\), Akra–Bazzi / induction gives **T(n) = Θ(n)**.
+Since `1/5 + 7/10 < 1`, Akra–Bazzi / induction gives **T(n) = Θ(n)**.
 
 ### 4. Closest Pair of Points
 
@@ -94,11 +89,9 @@ Since \(1/5 + 7/10 < 1\), Akra–Bazzi / induction gives **T(n) = Θ(n)**.
 
 **Recurrence.**
 
-\[
-T(n) = 2T(n/2) + Θ(n)
-\]
+$$T(n)=2T(n/2)+\Theta(n),\qquad T(n\le 3)=\Theta(1).$$
 
-Same Master case as MergeSort ⇒ **Θ(n log n)**, versus native O(n²) pairwise search.
+Same Master case as MergeSort ⇒ **Θ(n log n)**, versus naïve O(n²) pairwise search.
 
 ---
 
